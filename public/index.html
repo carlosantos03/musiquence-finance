@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musiquence Finance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/pagina_inicial.css">
+</head>
+<body>
+
+    <div id="chuva-dinheiro"></div>
+
+    <div class="menu-container">
+
+        <svg class="svg-titulo" viewBox="0 0 1000 300">
+            <defs>
+                <linearGradient id="corMusiquence" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#ffffff; stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#3BA7B1; stop-opacity:1" /> 
+                </linearGradient>
+            </defs>
+
+            <path id="curva" d="M 50,200 Q 500,-50 950,200" fill="transparent" />
+            
+            <text class="titulo-texto">
+                <textPath href="#curva" startOffset="50%" text-anchor="middle">
+                    MUSIQUENCE FINANCE
+                </textPath>
+            </text>
+        </svg>
+
+        <img src="img/Logo_SemNome.png" alt="Logo Musiquence" class="logo-musiquence">
+
+        <p class="subtitulo">O teu treino diário para uma vida financeira independente!</p>
+        
+        <button class="btn-jogar" id="botao-jogar">JOGAR</button>
+    </div>
+
+    <script src="js/ui.js"></script>
+</body>
+</html>

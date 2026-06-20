@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multibanco - MQ Finance</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/jogo_banco.css">
+
+</head>
+<body>
+    <div id="chuva-dinheiro"></div>
+
+    <div class="menu-container">
+        
+        <div id="ecra-niveis" class="caixa-privacidade" style="text-align: center;">
+            <h2 style="color: #3BA7B1; font-size: 2.8rem; margin-bottom: 10px;">Multibanco 💳</h2>
+            <p style="color: #F0F8FF; font-size: 1.6rem; margin-bottom: 30px;">Escolha o seu desafio de hoje:</p>
+
+            <button class="btn-nivel btn-facil" onclick="escolherNivel('facil')">🟢 Nível 1: Levantar Dinheiro</button>
+            <button class="btn-nivel btn-medio" onclick="escolherNivel('medio')">🟡 Nível 2: Pagamentos</button>
+            <button class="btn-nivel btn-dificil" onclick="escolherNivel('dificil')">🔴 Nível 3: Transferências</button>
+            
+            <button class="btn-voltar" style="margin-top: 20px;" onclick="window.location.href='menu_jogos.html'">⬅ Voltar ao Menu</button>
+        </div>
+
+        <div id="ecra-banco" class="caixa-privacidade" style="display: none; width: 90%; max-width: 1300px; margin: 0 auto; padding: 40px;">
+            
+            <div class="cabecalho-folha" style="border-bottom: 2px dashed #b2bec3; padding-bottom: 15px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center;">
+                <h2 class="titulo-folha" style="margin: 0; color: #3BA7B1; font-size: 2.2rem;">Multibanco 🏧</h2>
+                <span class="etiqueta-nivel" id="etiqueta-nivel-banco">Nível 1: Fácil</span>
+            </div>
+
+            <div class="layout-banco" style="display: flex; gap: 40px; justify-content: center;">
+                
+                <div class="coluna-esquerda" style="width: 350px;">
+                    
+                    <div class="painel-receita" style="background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                        <h3 style="margin-top: 0; color: #2d3436; border-bottom: 2px solid #0984e3; padding-bottom: 10px;">📋 O seu objetivo</h3>
+                        
+                        <div id="missao-texto" style="font-size: 1.5rem; color: #2d3436; line-height: 1.6; margin-bottom: 20px;">
+                            A carregar a missão...
+                        </div>
+                    </div>
+
+                    <button class="btn-voltar-lateral" style="margin-top: 30px; width: 100%;" onclick="voltarAoMenuDificuldade()">
+                        ⬅ Mudar de Nível
+                    </button>
+
+                </div>
+
+                <div class="painel-loja" style="flex-grow: 0;">
+                    
+                    <div class="maquina-multibanco">
+                        
+                        <div class="mb-moldura-ecra">
+                            <div id="mb-ecra" class="mb-ecra">
+                                <h3 id="mb-texto-visor" style="color: #f5f6fa; margin-bottom: 15px; white-space: pre-line;">Bem-vindo ao Multibanco</h3>
+                                
+                                <div id="mb-input-visor" class="mb-input-visor" style="display: none;"></div>
+                                
+                                <div id="mb-menu-opcoes" style="display: flex; width: 100%; flex-direction: column; gap: 8px;"></div>
+                            </div>
+                        </div>
+            
+                        <div class="mb-zona-teclado">
+                            <div class="mb-teclado-numeros">
+                                <button class="mb-tecla" onclick="inserirNumero(1)">1</button>
+                                <button class="mb-tecla" onclick="inserirNumero(2)">2</button>
+                                <button class="mb-tecla" onclick="inserirNumero(3)">3</button>
+                                <button class="mb-tecla" onclick="inserirNumero(4)">4</button>
+                                <button class="mb-tecla" onclick="inserirNumero(5)">5</button>
+                                <button class="mb-tecla" onclick="inserirNumero(6)">6</button>
+                                <button class="mb-tecla" onclick="inserirNumero(7)">7</button>
+                                <button class="mb-tecla" onclick="inserirNumero(8)">8</button>
+                                <button class="mb-tecla" onclick="inserirNumero(9)">9</button>
+                                <button class="mb-tecla mb-tecla-vazia"></button>
+                                <button class="mb-tecla" onclick="inserirNumero(0)">0</button>
+                                <button class="mb-tecla mb-tecla-vazia"></button>
+                            </div>
+            
+                            <div class="mb-teclado-acoes">
+                                <button class="mb-tecla-acao mb-btn-vermelho" onclick="teclaAnular()">
+                                    <span class="icone-tecla">✖</span> ANULAR
+                                </button>
+                                <button class="mb-tecla-acao mb-btn-amarelo" onclick="teclaCorrigir()">
+                                    <span class="icone-tecla">◄</span> CORRIGIR
+                                </button>
+                                <button class="mb-tecla-acao mb-btn-verde" onclick="teclaConfirmar()">
+                                    <span class="icone-tecla">✔</span> CONFIRMAR
+                                </button>
+                            </div>
+                        </div>
+            
+                        <div class="mb-ranhuras" style="align-items: flex-end;">
+                            <div id="saida-talao" class="mb-ranhura-talao" style="position: relative;"></div>
+                            <div id="saida-dinheiro" class="mb-ranhura-dinheiro"></div>
+                            <div id="saida-cartao" class="mb-ranhura-cartao" style="position: relative;"></div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="zona-resultados-banco" style="display: none; text-align: center; margin-top: 30px;">
+                </div>
+            
+        </div>
+
+    </div>
+
+    <script src="js/banco.js"></script>
+</body>
+</html>

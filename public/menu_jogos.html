@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu de Jogos - MQ Finance</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/menu_jogos.css">
+</head>
+<body>
+    <div id="chuva-dinheiro"></div>
+
+    <div class="botao-perfil-topo" id="abrir-perfil" title="Abrir Perfil">
+        👤
+    </div>
+
+    <div class="layout-ecra-inteiro">
+        <div class="area-jogos">
+            <div class="cabecalho-jogos">
+                <h2 class="saudacao">Olá, <span id="nome-jogador">Jogador</span>! 👋</h2>
+                <p class="instrucao">Escolha o jogo que quer testar hoje:</p>
+            </div>
+
+            <div class="grid-jogos">
+                <button class="cartao-jogo" onclick="window.location.href='contas.html'">
+                    <span class="icone-jogo">🧠</span>
+                    <br>Ginásio das Contas
+                </button>
+                <button class="cartao-jogo" onclick="window.location.href='niveis_moedas.html'"><span class="icone-jogo">🪙</span><br>Identificar Moedas/Notas</button>
+                <button class="cartao-jogo" onclick="window.location.href='supermercado.html'"><span class="icone-jogo">🛒</span><br>Supermercado</button>
+                <button class="cartao-jogo" onclick="window.location.href='farmacia.html'"><span class="icone-jogo">💊</span><br>Farmácia</button>
+                <button class="cartao-jogo" onclick="window.location.href='banco.html'"><span class="icone-jogo">💳</span><br>Multibanco</button>
+                <button class="cartao-jogo" onclick="window.location.href='compras_online.html'"><span class="icone-jogo">💻</span><br>Compras Online</button>
+            </div>
+        </div>
+
+        <div class="barra-lateral" id="barra-perfil">
+            <button class="btn-fechar" id="fechar-perfil">✖ Fechar</button>
+
+            <div class="perfil-info">
+                <div class="avatar" id="avatar-sidebar">👤</div>
+                <h3 class="perfil-nome" id="nome-sidebar">Perfil</h3>
+            </div>
+            
+            <div class="perfil-botoes">
+                <button class="btn-lateral" onclick="window.location.href='privacidade.html'">
+                    🔒 Privacidade e Perfil
+                </button>
+                <button class="btn-lateral" onclick="window.location.href='estatisticas.html'">
+                    📊 Estatísticas
+                </button>
+                <button class="btn-lateral" onclick="window.location.href='evolucao.html'">
+                    📈 A Minha Evolução
+                </button>
+            </div>
+
+            <button class="btn-sair">🚪 Terminar Sessão</button>
+        </div>
+    </div>
+    
+    <div id="modal-sair" class="modal-overlay">
+        <div class="modal-caixa">
+            <h3>Encerrar Sessão?</h3>
+            <p>Tem a certeza que deseja sair e voltar ao ecrã inicial?</p>
+            <div class="modal-botoes">
+                <button id="btn-cancelar-saida" class="btn-modal-cancelar">Cancelar</button>
+                <button id="btn-confirmar-saida" class="btn-modal-confirmar">Sim, sair</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/ui.js"></script>
+    <script src="js/perfil.js"></script>
+    <script src="js/utils.js"></script>
+</body>
+</html>

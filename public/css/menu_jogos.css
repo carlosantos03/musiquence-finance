@@ -1,0 +1,161 @@
+.layout-ecra-inteiro {
+    display: flex;
+    width: 100vw;
+    height: 100vh; 
+    z-index: 10;
+}
+
+.area-jogos {
+    flex: 1; 
+    padding: 8vh 6vw; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    overflow-y: auto; 
+}
+
+.cabecalho-jogos {
+    margin-bottom: 30px;
+    text-align: left; 
+}
+
+.saudacao {
+    font-size: 4rem;
+    color: #3BA7B1; 
+    margin: 0 0 5px 0;
+    text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
+}
+
+.instrucao {
+    font-size: 1.8rem;
+    color: #F0F8FF;
+    margin: 0;
+    font-weight: 400;
+}
+
+.grid-jogos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-auto-rows: 300px; 
+    gap: 30px; 
+    width: 100%;
+    max-width: 1300px; 
+}
+
+.cartao-jogo {
+    background: rgba(33, 43, 66, 0.7); 
+    border: 2px solid rgba(59, 167, 177, 0.3); 
+    border-radius: 20px;
+    padding: 30px 20px;
+    min-height: 190px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #f5f6fa; 
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    backdrop-filter: blur(10px); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.icone-jogo {
+    font-size: 3.5rem; 
+    margin-bottom: 15px;
+}
+
+.cartao-jogo:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.4);
+    background: rgba(26, 93, 117, 0.85);  
+    border-color: #3BA7B1; 
+}
+
+.barra-lateral {
+    position: fixed; 
+    top: 0;
+    right: -400px; 
+    width: 350px;
+    height: 100vh;
+    background: rgba(33, 43, 66, 0.95); 
+    border-left: 2px solid #3BA7B1; 
+    display: flex;
+    flex-direction: column;
+    padding: 3vh 30px;
+    box-sizing: border-box; 
+    box-shadow: -10px 0 25px rgba(0,0,0,0.6);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 30; 
+}
+
+.barra-lateral.aberta {
+    right: 0; 
+}
+
+.perfil-info {
+    text-align: center;
+    margin-bottom: 3vh; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar {
+    font-size: 3.5rem; 
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    width: 80px; 
+    height: 80px; 
+    line-height: 80px;
+    margin-bottom: 10px;
+    border: 3px solid #3BA7B1; 
+}
+
+.perfil-nome {
+    font-size: 1.4rem; 
+    line-height: 1.3; 
+    color: white;
+    margin: 0;
+}
+
+.perfil-botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh; 
+    flex: 1; 
+}
+
+.botao-perfil-topo {
+    position: absolute;
+    top: 80px; 
+    right: 130px;
+    font-size: 2.5rem;
+    background: rgba(33, 43, 66, 0.8);
+    border: 3px solid #3BA7B1;
+    color: #f5f6fa;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 20; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.botao-perfil-topo:hover {
+    transform: scale(1.1);
+    background: rgba(59, 167, 177, 0.3); 
+}
+
+.botao-perfil-topo.escondido {
+    opacity: 0;
+    transform: scale(0); 
+    pointer-events: none; 
+}

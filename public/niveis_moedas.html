@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Jogo do Dinheiro - MQ Finance</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/jogo_moedas.css">
+</head>
+<body>
+    <div id="chuva-dinheiro"></div>
+
+    <div class="menu-container">
+        
+        <div id="ecra-niveis" class="caixa-privacidade" style="text-align: center;">
+            <h2 style="color: #3BA7B1; font-size: 2.8rem; margin-bottom: 10px;">Identificar Moedas/Notas 🪙</h2>
+            <p style="color: #F0F8FF; font-size: 1.6rem; margin-bottom: 30px;">Escolha o seu desafio de hoje:</p>
+
+            <button class="btn-nivel btn-facil" onclick="window.location.href='moedas.html'">
+                🟢 Nível 1: A Carteira (Identificar)
+            </button>
+            <button class="btn-nivel btn-medio" onclick="window.location.href='moedas_nivel2.html'">
+                🟡 Nível 2: O Mealheiro (Somar)
+            </button>
+            <button class="btn-nivel btn-dificil" onclick="window.location.href='moedas_nivel3.html'">
+                🔴 Nível 3: O Cofre (Atingir Valor)
+            </button>
+            
+            <button class="btn-voltar" style="margin-top: 20px;" onclick="window.location.href='menu_jogos.html'">
+                ⬅ Voltar ao Menu
+            </button>
+        </div>
+
+    </div>
+
+    <script src="js/utils.js"></script>
+</body>
+</html>

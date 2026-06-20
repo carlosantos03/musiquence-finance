@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estatísticas - MQ Finance</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/estatisticas_evolucao.css">
+</head>
+<body>
+    <div id="chuva-dinheiro"></div>
+
+    <div class="container-estatisticas">
+        
+        <div style="text-align: center; margin-bottom: 20px;">
+            <h2 style="color: #3BA7B1; font-size: 3rem; margin-bottom: 10px; margin-top: 0;">Estatísticas 📊</h2>
+            <p style="color: #F0F8FF; font-size: 1.6rem; margin-bottom: 30px;">Veja como a sua mente está a ficar mais rápida!</p>
+            
+            <div class="seccao-filtros-dropdownn">
+                <div class="grupo-selectt" style="max-width: 400px; width: 100%;">
+                    
+                    <label for="select-jogo-estat">Selecione o jogo:</label>
+                    
+                    <select id="select-jogo-estat" class="select-evolucaoo" onchange="mostrarEstatisticasJogo(this.value)">
+                        <option value="caixa-matematica">🧠 Ginásio das Contas</option>
+                        <option value="caixa-moedas">🪙 Identificar Moedas/Notas</option>
+                        <option value="caixa-supermercado">🛒 Supermercado</option>
+                        <option value="caixa-farmacia">💊 Farmácia</option>
+                        <option value="caixa-banco">💳 Multibanco</option>
+                        <option value="caixa-online">💻 Compras Online</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="caixa-estatisticas" id="caixa-matematica">
+            <h3 class="titulo-jogo-estat">🧠 Ginásio das Contas</h3>
+            
+            <div id="mensagem-sem-dados" style="display: none; color: #F0F8FF; font-size: 1.6rem; padding: 20px; text-align: center;">
+                Ainda não fez nenhum exercício. Vá treinar! 💪
+            </div>
+
+            <div class="grelha-niveis" id="grelha-estatisticas">
+                <div class="cartao-nivel nivel-facil" onclick="abrirHistorico('facil')">
+                    <h4>🟢 Nível 1: Fácil</h4>
+                    <p>Folhas Entregues: <strong id="stat-facil-jogos">0</strong></p>
+                    <p>Taxa de Acerto: <strong id="stat-facil-acerto">0%</strong></p>
+                    <p>Tempo Médio: <strong id="stat-facil-tempo">0s</strong></p>
+                    <p>Média de Erros: <strong id="stat-facil-erros">0</strong></p>
+                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px; opacity: 0.7;">👆 Ver histórico</p>
+                </div>
+
+                <div class="cartao-nivel nivel-medio" onclick="abrirHistorico('medio')">
+                    <h4>🟡 Nível 2: Médio</h4>
+                    <p>Folhas Entregues: <strong id="stat-medio-jogos">0</strong></p>
+                    <p>Taxa de Acerto: <strong id="stat-medio-acerto">0%</strong></p>
+                    <p>Tempo Médio: <strong id="stat-medio-tempo">0s</strong></p>
+                    <p>Média de Erros: <strong id="stat-medio-erros">0</strong></p>
+                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px; opacity: 0.7;">👆 Ver histórico</p>
+                </div>
+
+                <div class="cartao-nivel nivel-dificil" onclick="abrirHistorico('dificil')">
+                    <h4>🔴 Nível 3: Difícil</h4>
+                    <p>Folhas Entregues: <strong id="stat-dificil-jogos">0</strong></p>
+                    <p>Taxa de Acerto: <strong id="stat-dificil-acerto">0%</strong></p>
+                    <p>Tempo Médio: <strong id="stat-dificil-tempo">0s</strong></p>
+                    <p>Média de Erros: <strong id="stat-dificil-erros">0</strong></p>
+                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px; opacity: 0.7;">👆 Ver histórico</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="caixa-estatisticas" id="caixa-moedas" style="display: none;">
+            <h3 class="titulo-jogo-estat" style="color: #55efc4; border-bottom-color: rgba(85, 239, 196, 0.3);">🪙 Identificar Moedas/Notas</h3>
+            
+            <div id="mensagem-sem-dados-moedas" style="display: none; color: #F0F8FF; font-size: 1.6rem; padding: 20px; text-align: center;">
+                Ainda não mexeu no dinheiro. Vá jogar! 💸
+            </div>
+
+            <div class="grelha-niveis" id="grelha-estatisticas-moedas">
+                <div class="cartao-nivel nivel-facil" onclick="abrirHistoricoMoedas('facil')">
+                    <h4>🟢 Nível 1: A Carteira</h4>
+                    <p>Desafios Feitos: <strong id="stat-moeda-facil-jogos">0</strong></p>
+                    <p>Taxa de Acerto: <strong id="stat-moeda-facil-acerto">0%</strong></p>
+                    <p>Tempo Médio: <strong id="stat-moeda-facil-tempo">0s</strong></p>
+                    <p>Média de Erros: <strong id="stat-moeda-facil-erros">0</strong></p>
+                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px; opacity: 0.7;">👆 Ver histórico</p>
+                </div>
+
+                <div class="cartao-nivel nivel-medio" onclick="abrirHistoricoMoedas('medio')">
+                    <h4>🟡 Nível 2: O Mealheiro</h4>
+                    <p>Desafios Feitos: <strong id="stat-moeda-medio-jogos">0</strong></p>
+                    <p>Taxa de Acerto: <strong id="stat-moeda-medio-acerto">0%</strong></p>
+                    <p>Tempo Médio: <strong id="stat-moeda-medio-tempo">0s</strong></p>
+                    <p>Média de Erros: <strong id="stat-moeda-medio-erros">0</strong></p>
+                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px; opacity: 0.7;">👆 Ver histórico</p>
+                </div>
+
+                <div class="cartao-nivel nivel-dificil" onclick="abrirHistoricoMoedas('dificil')">
+                    <h4>🔴 Nível 3: O Cofre</h4>
+                    <p>Desafios Feitos: <strong id="stat-moeda-dificil-jogos">0</strong></p>
+                    <p>Taxa de Acerto: <strong id="stat-moeda-dificil-acerto">0%</strong></p>
+                    <p>Tempo Médio: <strong id="stat-moeda-dificil-tempo">0s</strong></p>
+                    <p>Média de Erros: <strong id="stat-moeda-dificil-erros">0</strong></p>
+                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px; opacity: 0.7;">👆 Ver histórico</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="caixa-estatisticas" id="caixa-supermercado" style="display: none;">
+            <h3 class="titulo-jogo-estat" style="color: #ff7675; border-bottom-color: rgba(255, 118, 117, 0.3);">🛒 Supermercado</h3>
+            
+            <div id="mensagem-sem-dados-super" style="display: none; color: #F0F8FF; font-size: 1.6rem; padding: 20px; text-align: center;">
+                Ainda não foi às compras. A despensa está vazia! 🥫
+            </div>
+
+            <div class="grelha-niveis" id="grelha-estatisticas-super">
+                <div class="cartao-nivel nivel-facil" onclick="abrirHistoricoSupermercado('facil')">
+                    <h4>🟢 Nível 1: Fácil</h4>
+                    <p>Idas à Loja: <strong id="stat-super-facil-jogos">0</strong></p>
+                    <p>Tempo Méd. Prateleira: <strong id="stat-super-facil-tempo-prat">0s</strong></p>
+                    <p>Tempo Méd. Fatura: <strong id="stat-super-facil-tempo-fat">0s</strong></p>
+                    <p>Erros Prat.: <strong id="stat-super-facil-err-prat">0</strong></p>
+                    <p>Erros Fatura: <strong id="stat-super-facil-err-fat">0</strong></p>
+                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px; opacity: 0.7;">👆 Ver histórico</p>
+                </div>
+
+                <div class="cartao-nivel nivel-medio" onclick="abrirHistoricoSupermercado('medio')">
+                    <h4>🟡 Nível 2: Médio</h4>
+                    <p>Idas à Loja: <strong id="stat-super-medio-jogos">0</strong></p>
+                    <p>Tempo Méd. Prateleira: <strong id="stat-super-medio-tempo-prat">0s</strong></p>
+                    <p>Tempo Méd. Fatura: <strong id="stat-super-medio-tempo-fat">0s</strong></p>
+                    <p>Erros Prat.: <strong id="stat-super-medio-err-prat">0</strong></p>
+                    <p>Erros Fatura: <strong id="stat-super-medio-err-fat">0</strong></p>
+                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px; opacity: 0.7;">👆 Ver histórico</p>
+                </div>
+
+                <div class="cartao-nivel nivel-dificil" onclick="abrirHistoricoSupermercado('dificil')">
+                    <h4>🔴 Nível 3: Difícil</h4>
+                    <p>Idas à Loja: <strong id="stat-super-dificil-jogos">0</strong></p>
+                    <p>Tempo Méd. Prateleira: <strong id="stat-super-dificil-tempo-prat">0s</strong></p>
+                    <p>Tempo Méd. Fatura: <strong id="stat-super-dificil-tempo-fat">0s</strong></p>
+                    <p>Erros Prat.: <strong id="stat-super-dificil-err-prat">0</strong></p>
+                    <p>Erros Fatura: <strong id="stat-super-dificil-err-fat">0</strong></p>
+                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px; opacity: 0.7;">👆 Ver histórico</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="caixa-estatisticas" id="caixa-farmacia" style="display: none;">
+            <h3 class="titulo-jogo-estat" style="color: #00cec9; border-bottom-color: rgba(0, 206, 201, 0.3);">💊 Farmácia</h3>
+            
+            <div id="mensagem-sem-dados-farmacia" style="display: none; color: #F0F8FF; font-size: 1.6rem; padding: 20px; text-align: center;">
+                Ainda não aviou nenhuma receita. Vá à farmácia! 🏥
+            </div>
+
+            <div class="grelha-niveis" id="grelha-estatisticas-farmacia">
+                <div class="cartao-nivel nivel-facil" onclick="abrirHistoricoFarmacia('facil')">
+                    <h4>🟢 Nível 1: Fácil</h4>
+                    <p>Receitas: <strong id="stat-farm-facil-jogos">0</strong></p>
+                    <p>Tempo Receita: <strong id="stat-farm-facil-tempo-rec">0s</strong></p>
+                    <p>Tempo Troco: <strong id="stat-farm-facil-tempo-troco">0s</strong></p>
+                    <p>Erros Rec.: <strong id="stat-farm-facil-err-rec">0</strong></p>
+                    <p>Erros Troco: <strong id="stat-farm-facil-err-troco">0</strong></p>
+                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px; opacity: 0.7;">👆 Ver histórico</p>
+                </div>
+
+                <div class="cartao-nivel nivel-medio" onclick="abrirHistoricoFarmacia('medio')">
+                    <h4>🟡 Nível 2: Médio</h4>
+                    <p>Receitas: <strong id="stat-farm-medio-jogos">0</strong></p>
+                    <p>Tempo Receita: <strong id="stat-farm-medio-tempo-rec">0s</strong></p>
+                    <p>Tempo Troco: <strong id="stat-farm-medio-tempo-troco">0s</strong></p>
+                    <p>Erros Rec.: <strong id="stat-farm-medio-err-rec">0</strong></p>
+                    <p>Erros Troco: <strong id="stat-farm-medio-err-troco">0</strong></p>
+                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px; opacity: 0.7;">👆 Ver histórico</p>
+                </div>
+
+                <div class="cartao-nivel nivel-dificil" onclick="abrirHistoricoFarmacia('dificil')">
+                    <h4>🔴 Nível 3: Difícil</h4>
+                    <p>Receitas: <strong id="stat-farm-dificil-jogos">0</strong></p>
+                    <p>Tempo Receita: <strong id="stat-farm-dificil-tempo-rec">0s</strong></p>
+                    <p>Tempo Troco: <strong id="stat-farm-dificil-tempo-troco">0s</strong></p>
+                    <p>Erros Rec.: <strong id="stat-farm-dificil-err-rec">0</strong></p>
+                    <p>Erros Troco: <strong id="stat-farm-dificil-err-troco">0</strong></p>
+                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px; opacity: 0.7;">👆 Ver histórico</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="caixa-estatisticas" id="caixa-banco" style="display: none;">
+            <h3 class="titulo-jogo-estat" style="color: #0984e3; border-bottom-color: rgba(9, 132, 227, 0.3);">💳 Multibanco</h3>
+            
+            <div id="mensagem-sem-dados-banco" style="display: none; color: #F0F8FF; font-size: 1.6rem; padding: 20px; text-align: center;">
+                Ainda não foi ao multibanco. Vá levantar dinheiro! 💳
+            </div>
+
+            <div class="grelha-niveis" id="grelha-estatisticas-banco">
+                <div class="cartao-nivel nivel-facil" onclick="abrirHistoricoBanco('facil')">
+                    <h4>🟢 Nível 1: Levantar</h4>
+                    <p>Operações: <strong id="stat-banco-facil-jogos">0</strong></p>
+                    <p>Tempo Médio: <strong id="stat-banco-facil-tempo">0s</strong></p>
+                    <p>Média de Erros: <strong id="stat-banco-facil-erros">0</strong></p>
+                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px; opacity: 0.7;">👆 Ver histórico</p>
+                </div>
+
+                <div class="cartao-nivel nivel-medio" onclick="abrirHistoricoBanco('medio')">
+                    <h4>🟡 Nível 2: Pagamentos</h4>
+                    <p>Operações: <strong id="stat-banco-medio-jogos">0</strong></p>
+                    <p>Tempo Médio: <strong id="stat-banco-medio-tempo">0s</strong></p>
+                    <p>Média de Erros: <strong id="stat-banco-medio-erros">0</strong></p>
+                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px; opacity: 0.7;">👆 Ver histórico</p>
+                </div>
+
+                <div class="cartao-nivel nivel-dificil" onclick="abrirHistoricoBanco('dificil')">
+                    <h4>🔴 Nível 3: Transferências</h4>
+                    <p>Operações: <strong id="stat-banco-dificil-jogos">0</strong></p>
+                    <p>Tempo Médio: <strong id="stat-banco-dificil-tempo">0s</strong></p>
+                    <p>Média de Erros: <strong id="stat-banco-dificil-erros">0</strong></p>
+                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px; opacity: 0.7;">👆 Ver histórico</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="caixa-estatisticas" id="caixa-online" style="display: none;">
+            <h3 class="titulo-jogo-estat" style="color: #e84393; border-bottom-color: rgba(232, 67, 147, 0.3);">💻 Compras Online</h3>
+            
+            <div id="mensagem-sem-dados-online" style="display: none; color: #F0F8FF; font-size: 1.6rem; padding: 20px; text-align: center;">
+                Ainda não fez compras na internet. Cuidado com o orçamento! 🛍️
+            </div>
+
+            <div class="grelha-niveis" id="grelha-estatisticas-online">
+                <div class="cartao-nivel nivel-facil" onclick="abrirHistoricoComprasOnline('facil')">
+                    <h4>🟢 Nível 1: Fácil</h4>
+                    <p>Encomendas: <strong id="stat-online-facil-jogos">0</strong></p>
+                    <p>Tempo Médio: <strong id="stat-online-facil-tempo">0s</strong></p>
+                    <p>Média de Erros: <strong id="stat-online-facil-erros">0</strong></p>
+                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px; opacity: 0.7;">👆 Ver histórico</p>
+                </div>
+
+                <div class="cartao-nivel nivel-medio" onclick="abrirHistoricoComprasOnline('medio')">
+                    <h4>🟡 Nível 2: Médio</h4>
+                    <p>Encomendas: <strong id="stat-online-medio-jogos">0</strong></p>
+                    <p>Tempo Médio: <strong id="stat-online-medio-tempo">0s</strong></p>
+                    <p>Média de Erros: <strong id="stat-online-medio-erros">0</strong></p>
+                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px; opacity: 0.7;">👆 Ver histórico</p>
+                </div>
+
+                <div class="cartao-nivel nivel-dificil" onclick="abrirHistoricoComprasOnline('dificil')">
+                    <h4>🔴 Nível 3: Difícil</h4>
+                    <p>Encomendas: <strong id="stat-online-dificil-jogos">0</strong></p>
+                    <p>Tempo Médio: <strong id="stat-online-dificil-tempo">0s</strong></p>
+                    <p>Média de Erros: <strong id="stat-online-dificil-erros">0</strong></p>
+                    <p style="text-align: center; font-size: 1.2rem; margin-top: 15px; opacity: 0.7;">👆 Ver histórico</p>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn-voltar btn-central" style="margin-top: 30px; margin-bottom: 30px; max-width: 300px;" onclick="window.location.href='menu_jogos.html'">
+            ⬅ Voltar ao Menu
+        </button>
+
+    </div>
+
+    <div id="modal-historico" class="modal-oculto">
+        <div class="modal-conteudo">
+            <span class="fechar-modal" onclick="fecharHistorico()">&times;</span>
+            <h3 id="titulo-modal" style="font-size: 2.2rem; margin-bottom: 20px; margin-top: 0;">Histórico</h3>
+            <div class="tabela-container">
+                <table id="tabela-historico">
+                    <thead>
+                        <tr>
+                            <th>Data e Hora</th>
+                            <th>Tempo</th>
+                            <th>Erros</th>
+                            <th>Acertos</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpo-tabela-historico">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/estatisticas.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html>

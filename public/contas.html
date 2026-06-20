@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ginásio das Contas - MQ Finance</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/jogo_contas.css">
+</head>
+<body>
+    <div id="chuva-dinheiro"></div>
+
+    <div class="menu-container">
+        
+        <div id="ecra-niveis" class="caixa-privacidade" style="text-align: center;">
+            <h2 style="color: #3BA7B1; font-size: 2.8rem; margin-bottom: 10px;">Ginásio das Contas 🧠</h2>
+            
+            <p style="color: #F0F8FF; font-size: 1.6rem; margin-bottom: 30px;">Escolha o seu desafio de hoje:</p>
+
+            <button class="btn-nivel btn-facil" onclick="iniciarJogo('facil')">
+                🟢 Nível 1: Fácil (Somas e Subtrações Simples)
+            </button>
+            <button class="btn-nivel btn-medio" onclick="iniciarJogo('medio')">
+                🟡 Nível 2: Médio (Números Maiores)
+            </button>
+            <button class="btn-nivel btn-dificil" onclick="iniciarJogo('dificil')">
+                🔴 Nível 3: Difícil (O Desafio Final)
+            </button>
+            
+            <button class="btn-voltar" style="margin-top: 20px;" onclick="window.location.href='menu_jogos.html'">
+                ⬅ Voltar ao Menu
+            </button>
+        </div>
+
+        <div id="ecra-caderno" class="folha-papel" style="display: none;">
+            <div class="cabecalho-folha">
+                <h2 class="titulo-folha">Exercícios ✏️</h2>
+                <span class="etiqueta-nivel" id="etiqueta-nivel">Nível 1: Fácil</span>
+            </div>
+
+            <div id="area-contas">
+                </div>
+
+            <div id="mensagem-feedback" style="text-align: center; font-size: 1.8rem; font-weight: bold; margin-top: 20px; height: 30px;"></div>
+
+            <button class="btn-corrigir" onclick="verificarRespostas()">Entregar as Respostas 📝</button>
+            
+            <button class="btn-voltar" style="margin-top: 15px; border: 2px solid #636e72; color: #636e72;" onclick="voltarAosNiveis()">
+                ⬅ Mudar de Nível
+            </button>
+        </div>
+
+    </div>
+
+    <script src="js/perfil.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/jogo_contas.js"></script>
+</body>
+</html>

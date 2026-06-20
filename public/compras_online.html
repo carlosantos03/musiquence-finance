@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compras Online - MQ Finance</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/jogo_compras_online.css">
+</head>
+<body>
+    <div id="chuva-dinheiro"></div>
+
+    <div class="menu-container">
+        
+        <div id="ecra-niveis" class="caixa-privacidade" style="text-align: center;">
+            <h2 style="color: #3BA7B1; font-size: 2.8rem; margin-bottom: 10px;">Compras Online 💻</h2>
+            <p style="color: #F0F8FF; font-size: 1.6rem; margin-bottom: 30px;">Escolha o seu desafio de hoje:</p>
+
+            <button class="btn-nivel btn-facil" onclick="iniciarJogoOnline('facil')">🟢 Nível 1: Comprar 1 Produto</button>
+            <button class="btn-nivel btn-medio" onclick="iniciarJogoOnline('medio')">🟡 Nível 2: Lista de Compras (3 Itens)</button>
+            <button class="btn-nivel btn-dificil" onclick="iniciarJogoOnline('dificil')">🔴 Nível 3: Orçamento e Portes</button>
+            
+            <button class="btn-voltar" style="margin-top: 20px;" onclick="window.location.href='menu_jogos.html'">
+                ⬅ Voltar ao Menu
+            </button>
+        </div>
+
+        <div id="ecra-loja-online" class="caixa-privacidade" style="display: none; width: 90%; max-width: 1300px; height: auto; margin: 0 auto; padding: 40px;">
+            
+            <div class="cabecalho-folha" style="border-bottom: 2px dashed #b2bec3; padding-bottom: 15px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center;">
+                <h2 class="titulo-folha" style="margin: 0; color: #3BA7B1; font-size: 2.2rem;">Compras Online 🛍️</h2>
+                <span class="etiqueta-nivel" id="etiqueta-nivel-online">Nível 1: Fácil</span>
+            </div>
+
+            <div class="layout-loja-online">
+                
+                <div class="coluna-missao">
+                    <div class="painel-missao">
+                        <h3 style="margin-top: 0; border-bottom: 2px dashed #b2bec3; padding-bottom: 10px; color: #2d3436;">📋 A Sua Missão</h3>
+                        <div id="texto-missao-online" style="font-size: 1.4rem; line-height: 1.6; color: #2d3436;">
+                            A carregar missão...
+                        </div>
+                    </div>
+                    <button class="btn-voltar-lateral" style="margin-top: 20px;" onclick="voltarAoMenuDificuldade()">
+                        ⬅ Mudar de Nível
+                    </button>
+                </div>
+
+                <div class="janela-browser">
+                    <div class="browser-topo">
+                        <div class="browser-botoes"><span></span><span></span><span></span></div>
+                        <div class="browser-url">🔒 https://www.loja-online-mq-finance.pt</div>
+                    </div>
+
+                    <div class="site-conteudo">
+                        <header class="site-header">
+                            <h2>Loja Online MQ Finance</h2>
+                            <div class="site-carrinho" onclick="abrirCarrinho()">
+                                🛒 Carrinho <span id="contador-carrinho" class="badge-carrinho">0</span>
+                            </div>
+                        </header>
+
+                        <div id="fase-pesquisa" class="barra-pesquisa-container">
+                            <input type="text" id="input-pesquisa" placeholder="🔍 O que procura hoje?" onkeyup="pesquisarEOrdenar()" autocomplete="off">
+                            <select id="filtro-ordem" onchange="pesquisarEOrdenar()">
+                                <option value="relevancia">Relevância</option>
+                                <option value="preco-asc">Mais Barato ⬆️</option>
+                                <option value="preco-desc">Mais Caro ⬇️</option>
+                                <option value="az">Nome (A-Z)</option>
+                                <option value="za">Nome (Z-A)</option>
+                            </select>
+                            <button class="btn-pesquisa" onclick="pesquisarEOrdenar()">Procurar</button>
+                        </div>
+
+                        <div id="fase-categorias" class="categorias-container">
+                            <button class="btn-categoria ativo" onclick="filtrarCategoria('todas', this)">Tudo</button>
+                            <button class="btn-categoria" onclick="filtrarCategoria('supermercado', this)">🛒 Supermercado</button>
+                            <button class="btn-categoria" onclick="filtrarCategoria('farmacia', this)">💊 Farmácia</button>
+                            <button class="btn-categoria" onclick="filtrarCategoria('tecnologia', this)">💻 Tecnologia</button>
+                            <button class="btn-categoria" onclick="filtrarCategoria('lazer', this)">📚 Lazer</button>
+                        </div>
+
+                        <div id="fase-catalogo" class="site-catalogo"></div>
+
+                        <div id="fase-checkout" class="site-checkout" style="display: none;">
+                            <h3 style="border-bottom: 2px solid #eee; padding-bottom: 10px;">O Seu Carrinho</h3>
+                            <div id="lista-carrinho-checkout"></div>
+                            
+                            <div class="resumo-totais">
+                                <p>Subtotal: <span id="checkout-subtotal">0,00€</span></p>
+                                <p>Portes de Envio: <span id="checkout-portes">0,00€</span></p>
+                                <h3 style="margin-top: 10px;">Total a Pagar: <span id="checkout-total">0,00€</span></h3>
+                            </div>
+
+                            <h3 style="margin-top: 30px;">Dados de Envio</h3>
+                            <div class="formulario-checkout">
+                                <input type="text" id="form-nome" placeholder="Primeiro e Último Nome" autocomplete="off">
+                                <input type="text" id="form-morada" placeholder="Morada de Entrega" autocomplete="off">
+                                <input type="text" id="form-cp" placeholder="Código Postal (ex: 1000-100)" autocomplete="off">
+                            </div>
+
+                            <h3 style="margin-top: 30px;">Método de Pagamento</h3>
+                            <div class="opcoes-pagamento">
+                                <label class="cartao-pagamento" onclick="selecionarPagamento('mbway')">
+                                    <input type="radio" name="pagamento" value="mbway">
+                                    <span>📱 MB WAY</span>
+                                </label>
+                                <label class="cartao-pagamento" onclick="selecionarPagamento('multibanco')">
+                                    <input type="radio" name="pagamento" value="multibanco">
+                                    <span>🏦 Multibanco</span>
+                                </label>
+                                <label class="cartao-pagamento" onclick="selecionarPagamento('cartao')">
+                                    <input type="radio" name="pagamento" value="cartao">
+                                    <span>💳 Cartão de Crédito</span>
+                                </label>
+                            </div>
+
+                            <div id="mensagem-erro-checkout" style="display: none; background: #ffeaec; color: #d63031; padding: 15px; border-left: 5px solid #d63031; border-radius: 5px; margin-top: 20px; font-weight: bold; font-size: 1.4rem;"></div>
+
+                            <div id="botoes-checkout-normais" style="display: flex; gap: 15px; margin-top: 30px;">
+                                <button class="btn-corrigir" style="flex: 2; margin: 0;" onclick="validarCompra()">
+                                    ✅ Confirmar e Pagar
+                                </button>
+                                <button class="btn-voltar" style="flex: 1; margin: 0; color: #2d3436; border-color: #2d3436;" onclick="voltarAoCatalogo()">
+                                    ⬅ Voltar à Loja
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="ecra-pagamento-pendente" class="caixa-privacidade" style="display: none;">
+            <h2 style="color: #0984e3; font-size: 3.2rem; margin-top: 0;">🏦 Pagamento Seguro</h2>
+            <p style="font-size: 1.8rem; color: #ffffff; margin-bottom: 30px;">Por favor, utilize a App do seu Banco no telemóvel ao lado e introduza os seguintes dados para concluir a encomenda.</p>
+
+            <div style="background: #f1f2f6; border: 2px dashed #0984e3; padding: 30px; border-radius: 15px; display: inline-block; text-align: left; font-size: 2rem;">
+                <p style="margin: 10px 0;"><strong>Entidade:</strong> <span id="gateway-ent" style="color: #0984e3; font-weight: bold;">---</span></p>
+                <p style="margin: 10px 0;"><strong>Referência:</strong> <span id="gateway-ref" style="color: #0984e3; font-weight: bold;">---</span></p>
+                <p style="margin: 10px 0;"><strong>Valor:</strong> <span id="gateway-val" style="color: #0984e3; font-weight: bold;">---</span></p>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <button class="btn-vermelho-outline" onclick="cancelarHomebanking()">
+                    ❌ Cancelar e Voltar à Loja
+                </button>
+            </div>
+        </div>
+
+        <div id="zona-resultados-online" style="display: none; text-align: center; margin-top: 30px;"></div>
+
+    </div>
+
+    <div id="modal-intro-jogo" style="display: none;">
+        <div class="caixa-intro">
+            
+            <div id="intro-passo-1">
+                <h2 style="color: #d63031; font-size: 2.8rem; margin-top: 0;">⚠️ Aviso Importante</h2>
+                <p style="font-size: 1.8rem; color: #2d3436; margin-bottom: 20px;">
+                    Neste jogo, as moradas, números de telemóvel e dados de pagamento são <strong>100% fictícios</strong> e gerados automaticamente.
+                </p>
+                <p style="font-size: 1.6rem; color: #636e72; margin-bottom: 30px;">
+                    Apenas lhe pediremos que use o seu <strong>Primeiro e Último Nome reais</strong> para tornar o treino mais realista. Não se preocupe, não haverá qualquer cobrança ou envio verdadeiro!
+                </p>
+                <button class="btn-azul-intro" onclick="mostrarIntroPasso2()">
+                    Continuar ➔
+                </button>
+            </div>
+
+            <div id="intro-passo-2" style="display: none;">
+                <h2 style="color: #00b894; font-size: 2.8rem; margin-top: 0;">📋 Onde estão os dados?</h2>
+                <p style="font-size: 1.8rem; color: #2d3436; margin-bottom: 20px;">
+                    Durante o checkout, vai precisar de preencher formulários para avançar.
+                </p>
+                <div style="background: #f1f2f6; padding: 20px; border-radius: 10px; border: 2px dashed #00b894; margin-bottom: 30px; font-size: 1.6rem; color: #2d3436;">
+                    Encontrará toda a informação de que precisa no painel lateral <strong>"A Sua Missão"</strong>.
+                </div>
+                <button class="btn-verde-intro" onclick="comecarJogoAposIntro()">
+                    ✅ Entendido, Jogar!
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="modal-telemovel" style="display: none;">
+        <div class="fundo-escuro" onclick="mostrarErro('Tem de aceitar ou recusar no telemóvel!')"></div>
+        <div class="telemovel-mockup">
+            <div class="telemovel-ecra">
+                <div class="mbway-header">
+                    <span style="font-size: 1.4rem;">📱 App MB WAY</span>
+                </div>
+                <div class="mbway-body">
+                    <p style="color: #636e72; font-size: 1.4rem; margin-bottom: 5px;">Pedido de pagamento</p>
+                    <h3 style="margin: 0; font-size: 2rem; color: #2d3436;">Loja MQ Finance</h3>
+                    <p style="font-size: 4rem; font-weight: bold; color: #0080c9; margin: 15px 0;" id="mbway-valor-ecra">0,00€</p>
+                    <p style="color: #d63031; font-size: 1.2rem; margin-bottom: 30px; font-weight: bold;">
+                        ⏱️ Expira em <span id="mbway-tempo">04:00</span>
+                    </p>
+                    <button class="btn-mbway-aceitar" onclick="aceitarMBWay()">✅ Autorizar Pagamento</button>
+                    <button class="btn-mbway-recusar" onclick="recusarMBWay()">❌ Recusar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-homebanking" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 10000; pointer-events: none;">
+        <div class="telemovel-mockup" style="position: absolute; top: 50%; right: 5%; transform: translateY(-50%); pointer-events: auto;">
+            <div class="telemovel-ecra">
+                <div class="homebanking-header">
+                    <span style="font-size: 1.4rem;">🏦 App Meu Banco</span>
+                </div>
+                <div class="homebanking-body">
+                    <h3 style="margin-top: 0; color: #2d3436; font-size: 1.8rem; text-align: center;">Pagamentos</h3>
+
+                    <div class="form-banco" style="margin-top: 15px;">
+                        <label>Entidade:</label>
+                        <input type="text" id="hb-entidade" maxlength="5" placeholder="5 dígitos" autocomplete="off" oninput="this.value = this.value.replace(/\D/g, '')">
+
+                        <label>Referência:</label>
+                        <input type="text" id="hb-referencia" maxlength="11" placeholder="9 dígitos" autocomplete="off" oninput="formatarReferenciaMB(this)">
+
+                        <label>Valor (€):</label>
+                        <input type="text" id="hb-valor" placeholder="0,00" autocomplete="off" oninput="this.value = this.value.replace(/[^0-9,.]/g, '')">
+                    </div>
+
+                    <button class="btn-mbway-aceitar" style="background: #0984e3; box-shadow: 0 4px 0 #0652dd; margin-top: 20px;" onclick="pagarHomebanking()">Pagar Fatura</button>
+                    <button class="btn-mbway-recusar" style="margin-top: 10px;" onclick="cancelarHomebanking()">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/compras_online.js"></script>
+</body>
+</html>

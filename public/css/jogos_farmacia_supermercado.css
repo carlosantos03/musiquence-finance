@@ -1,0 +1,363 @@
+.layout-supermercado {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    align-items: flex-start;
+    margin-top: 40px; 
+}
+.coluna-esquerda {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    width: 300px; 
+}
+.painel-lista {
+    background-color: #fdcb6e; 
+    padding: 20px; 
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    width: 100%; 
+    min-height: 250px;
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
+    position: relative;
+    color: #2d3436; 
+    box-sizing: border-box; 
+}
+
+.painel-lista h3 {
+    margin-top: 0;
+    border-bottom: 2px dashed #d63031;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#lista-compras-html {
+    font-size: 2rem; 
+    margin-top: 15px;
+    padding-left: 10px; 
+    text-align: left; 
+    list-style: black circle; 
+    list-style-position: inside; 
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+
+#ecra-supermercado {
+    padding: 20px 40px !important; 
+}
+
+
+.painel-loja {
+    flex-grow: 1;
+    background: #f1f2f6;
+    padding: 20px 40px 5px 40px !important; 
+    border-radius: 15px;
+    border: 4px solid #ced6e0;
+    min-height: 750px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end !important;
+    gap: 120px; 
+}
+
+.prateleira {
+    background: #a4b0be; 
+    height: 15px; 
+    border-radius: 5px;
+    box-shadow: 0 5px 0 #747d8c;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end; 
+    position: relative;
+    margin-bottom: 20px; 
+}
+
+.produto-img {
+    height: 120px !important;
+    width: auto !important;
+    max-width: 130px !important;
+    object-fit: contain !important;
+    object-position: bottom !important;
+    filter: drop-shadow(3px 5px 8px rgba(0,0,0,0.3)) !important;
+    z-index: 2 !important; 
+}
+
+.produto-caixa {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    position: relative !important;
+    cursor: pointer !important;
+    height: 160px !important; 
+    transform: translateY(15px) !important;    
+    margin-bottom: 0px !important;
+    transition: all 0.2s; 
+}
+
+.produto-caixa:hover {
+    transform: scale(1.1);
+}
+
+.etiqueta-preco {
+    font-size: 1.1rem !important;
+    background: #fdcb6e !important;
+    border: 2px solid #2d3436 !important;
+    padding: 2px 8px !important;
+    border-radius: 4px !important;
+    color: #000 !important;
+    font-weight: bold !important;
+    z-index: 10 !important;
+    margin-top: -5px !important; 
+}
+
+.container-faturas {
+    display: flex;
+    justify-content: center;
+    gap: 80px; 
+    margin-top: 10px; 
+}
+
+.talao-recibo {
+    background: #ffffff;
+    width: 320px; 
+    padding: 30px 25px 40px 25px; 
+    color: #333;
+    font-family: 'Courier New', Courier, monospace; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    position: relative;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.talao-recibo:hover {
+    transform: translateY(-10px); 
+    border-color: #0984e3;
+}
+
+.talao-recibo::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(-45deg, transparent 5px, #ffffff 5px),
+                linear-gradient(45deg, transparent 5px, #ffffff 5px);
+    background-size: 10px 10px;
+}
+
+.talao-topo {
+    text-align: center;
+    border-bottom: 2px dashed #7f8c8d;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    font-weight: bold;
+    font-size: 1.8rem; 
+}
+
+.talao-linha {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 1.5rem; 
+}
+
+.talao-total {
+    margin-top: 30px;
+    border-top: 2px solid #333;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 2rem; 
+}
+
+.carrinho-compras {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px dashed #2d3436;
+    border-radius: 10px;
+    min-height: 100px;
+    margin-top: 20px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-content: flex-start;
+}
+
+.carrinho-compras img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    animation: cairNoCarrinho 0.3s ease-out;
+}
+
+@keyframes cairNoCarrinho {
+    0% { transform: translateY(-20px) scale(1.5); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.produto-erro {
+    border: 4px solid #d63031 !important;
+    transform: translateY(15px) scale(0.9) rotate(5deg) !important;
+    opacity: 0.7;
+    background-color: #ffeaa7; 
+}
+
+.layout-farmacia {
+    background-color: #2d3436; 
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+}
+
+.painel-receita {
+    background-color: #fdfdfd; 
+    color: #2d3436;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    border-left: 10px solid #d63031; 
+    font-family: 'Georgia', serif; 
+}
+
+.saco-farmacia {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px dashed #2d3436;
+    border-radius: 10px;
+    min-height: 100px;
+    margin-top: 20px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-content: flex-start;
+}
+
+.saco-farmacia img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    animation: cairNoCarrinho 0.3s ease-out;
+}
+
+.prateleira-vidro {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.4) 100%);
+    backdrop-filter: blur(12px); 
+    border: 2px solid rgba(255, 255, 255, 0.9); 
+    border-radius: 15px;
+    padding: 25px; 
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); 
+    height: 30px;
+    display: flex;
+}
+
+.linha-vidro {
+    height: 12px; 
+    background: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 100%); 
+    border-radius: 5px;
+    margin-top: 0px; 
+    margin-bottom: 15px; 
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2), inset 0 2px 2px #ffffff;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.medicamento-caixa {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    cursor: pointer !important;
+    width: 100% !important;
+    
+    margin-bottom:-100px;
+    
+    background: transparent !important;
+    border: none !important;
+    transition: all 0.2s;
+    z-index: 10 !important;
+}
+
+.medicamento-caixa img {
+    height: 200px !important;
+    width: 400px !important; 
+    object-fit: contain;
+    filter: drop-shadow(3px 5px 8px rgba(0,0,0,0.3)) !important;
+}
+
+.medicamento-caixa .etiqueta-preco {
+    font-size: 1.1rem !important;
+    background: #fdcb6e !important; 
+    border: 2px solid #2d3436 !important;
+    padding: 2px 8px !important;
+    border-radius: 4px !important;
+    color: #000 !important;
+    font-weight: bold !important;
+    margin-top: -5px !important; 
+    z-index: 20 !important; 
+}
+
+.medicamento-caixa:hover {
+    transform: scale(1.1);
+}
+
+.produto-erro {
+    border: 4px solid #d63031 !important;
+    border-radius: 10px;
+    background: rgba(214, 48, 49, 0.2) !important;
+    animation: tremer 0.3s;
+}
+
+.medicamento-erro {
+    border: 4px solid #d63031 !important;
+    animation: tremer 0.3s;
+}
+
+@keyframes tremer {
+    0% { transform: translate(1px, 1px); }
+    50% { transform: translate(-1px, -1px); }
+    100% { transform: translate(1px, -1px); }
+}
+
+.container-maos-troco {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.mao-escolha {
+    background: rgba(255,255,255,0.1); 
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.mao-escolha:hover {
+    background: rgba(255,255,255,0.15);
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Minha Evolução - MQ Finance</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/estatisticas_evolucao.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="chuva-dinheiro"></div>
+
+    <div class="container-estatisticas">
+        
+        <div class="evolucao-header" style="margin-bottom: 15px;">
+            <h2 style="margin-bottom: 5px;">A Minha Evolução 📈</h2>
+            <p style="margin-top: 0;">Escolha o jogo e o nível que quer analisar.</p>
+        </div>
+
+        <div class="caixa-estatisticas caixa-grafico">
+
+            <div class="seccao-filtros-dropdown">
+                <div class="grupo-select">
+                    <label for="select-jogo">Selecione o Jogo:</label>
+                    <select id="select-jogo" class="select-evolucao" onchange="mudarJogo(this.value)">
+                        <option value="matematica">🧠 Ginásio das Contas</option>
+                        <option value="moedas">🪙 Identificar Moedas/Notas</option>
+                        <option value="supermercado">🛒 Supermercado</option>
+                        <option value="farmacia">💊 Farmácia</option>
+                        <option value="banco">💳 Multibanco</option>
+                        <option value="online">💻 Compras Online</option>
+                    </select>
+                </div>
+
+                <div class="grupo-select">
+                    <label for="select-nivel">Selecione a Dificuldade:</label>
+                    <select id="select-nivel" class="select-evolucao" onchange="mudarNivel(this.value)">
+                        <option value="todos">🌍 Todos os Níveis</option>
+                        <option value="facil">🟢 Nível 1: Fácil</option>
+                        <option value="medio">🟡 Nível 2: Médio</option>
+                        <option value="dificil">🔴 Nível 3: Difícil</option>
+                    </select>
+                </div>
+            </div>
+
+            <h3 id="titulo-grafico">A carregar...</h3>
+            
+            <div id="msg-sem-dados" class="msg-alerta" style="display: none;">
+                Ainda não fez jogos suficientes neste nível. Vá treinar! 💪
+            </div>
+
+            <div id="area-graficos" style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%; margin-top: 15px; padding-bottom: 25px;">
+                
+                <div id="contentor-grafico-1" style="width: 48%;">
+                    <h4 id="titulo-grafico-1" style="text-align: center; display: none; color: #00b894; font-size: 1.8rem; margin-bottom: 15px; margin-top: 0;">🔎 Fase 1: Prateleira</h4>
+                    
+                    <div style="position: relative; height: 400px; width: 100%;">
+                        <canvas id="graficoDinamico"></canvas>
+                    </div>
+                </div>
+                
+                <div id="contentor-grafico-2" style="width: 48%; display: none;">
+                    <h4 id="titulo-grafico-2" style="text-align: center; color: #fdcb6e; font-size: 1.8rem; margin-bottom: 15px; margin-top: 0;">🧾 Fase 2: Fatura</h4>
+                    
+                    <div style="position: relative; height: 400px; width: 100%;">
+                        <canvas id="graficoDinamico2"></canvas>
+                    </div>
+                </div>
+                
+            </div>
+            </div>
+            
+        <button class="btn-voltar btn-central" style="margin-top: 30px; margin-bottom: 30px; max-width: 300px;" onclick="window.location.href='menu_jogos.html'">
+            ⬅ Voltar ao Menu
+        </button>
+
+    </div> 
+    <script src="js/evolucao.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Cofre - MQ Finance</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/jogo_moedas.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <div id="chuva-dinheiro"></div>
+
+    <div class="menu-container">
+        <div class="caixa-privacidade" style="text-align: center; max-width: 800px; width: 100%;">
+            
+            <div class="cabecalho-folha" style="border-bottom: 2px dashed rgba(255,255,255,0.2);">
+                <h2 style="color: #3BA7B1; font-size: 2.8rem; margin: 0;">O Cofre 🏦</h2>
+                <span class="etiqueta-nivel" style="background: #ff7675; color: #fff;">Nível 3: Atingir o Valor</span>
+            </div>
+
+            <div style="display: flex; justify-content: space-around; background: rgba(0,0,0,0.3); border-radius: 10px; padding: 15px; margin-top: 20px; margin-bottom: 10px;">
+                <div>
+                    <p style="color: #F0F8FF; font-size: 1.2rem; margin: 0;">Objetivo:</p>
+                    <p id="valor-objetivo" style="color: #FFD700; font-size: 2.2rem; font-weight: bold; margin: 0;">0,00€</p>
+                </div>
+                <div>
+                    <p style="color: #F0F8FF; font-size: 1.2rem; margin: 0;">Já selecionou:</p>
+                    <p id="valor-atual" style="color: #00b894; font-size: 2.2rem; font-weight: bold; margin: 0;">0,00€</p>
+                </div>
+            </div>
+            
+            <p class="dica-interacao">👆 Clique diretamente no dinheiro na mesa para o selecionar!</p>
+
+            <div id="canvas-container" style="height: 350px;"></div>
+
+            <div id="mensagem-moeda" style="font-size: 1.8rem; font-weight: bold; height: 30px; margin-bottom: 20px;"></div>
+
+            <button class="btn-corrigir" id="btn-limpar" style="background: #e17055; box-shadow: 0px 6px 0px #c85a40; margin-bottom: 12px; font-size: 1.6rem;" onclick="limparSelecao()">
+                🔄 Limpar Escolhas
+            </button>
+            <button class="btn-corrigir" id="btn-proximo" style="display: none; background: #00b894; box-shadow: 0px 6px 0px #008f73; margin-bottom: 12px;" onclick="gerarNovoDesafioN3()">Próximo Desafio ➡️</button>
+            
+            <br>
+            <button class="btn-voltar" onclick="window.location.href='niveis_moedas.html'">⬅ Mudar de Nível</button>
+        </div>
+    </div>
+
+    <script src="js/jogo_moedas_n3.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Farmácia - MQ Finance</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/jogos_farmacia_supermercado.css">
+</head>
+<body class="layout-farmacia">
+    <div id="chuva-dinheiro"></div>
+
+    <div class="menu-container">
+
+        <div id="ecra-niveis" class="caixa-privacidade" style="text-align: center;">
+           <h2 style="color: #3BA7B1; font-size: 2.8rem; margin-bottom: 10px;">🏥 Farmácia</h2>
+            <p style="color: #F0F8FF; font-size: 1.6rem; margin-bottom: 30px;">Escolha o seu desafio de hoje:</p>
+
+            <button class="btn-nivel btn-facil" onclick="escolherNivel('facil')">🟢 Nível 1: Fácil (1 Produto)</button>
+            <button class="btn-nivel btn-medio" onclick="escolherNivel('medio')">🟡 Nível 2: Médio (2 Produtos)</button>
+            <button class="btn-nivel btn-dificil" onclick="escolherNivel('dificil')">🔴 Nível 3: Difícil (3 Produtos)</button>
+            
+            <button class="btn-voltar" style="margin-top: 20px;" onclick="window.location.href='menu_jogos.html'">⬅ Voltar ao Menu</button>
+        </div>
+
+        <div id="ecra-farmacia" class="caixa-privacidade" style="display: none; width: 90%; max-width: 1300px; margin: 0 auto; padding: 40px;">
+            
+            <div class="cabecalho-folha" style="border-bottom: av2px dashed #b2bec3; padding-bottom: 15px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center;">
+                <h2 class="titulo-folha" style="margin: 0; color: #3BA7B1; font-size: 2.2rem;">Receita 💊</h2>
+                <span class="etiqueta-nivel" id="etiqueta-nivel-farmacia">Nível 1: Fácil</span>
+            </div>
+
+            <div class="layout-supermercado" style="display: flex;">
+                
+                <div class="coluna-esquerda" style="width: 300px; padding-right: 20px;">
+                    
+                    <div class="painel-receita">
+                        <h3 style="margin-top: 0; margin-bottom: 10px; border-bottom: 2px dashed #ccc; padding-bottom: 5px;">📄 Receita Médica</h3>
+                        <ul id="lista-receita-html" style="font-size: 1.2rem; line-height: 1.8; margin: 0; padding-left: 20px;">
+                        </ul>
+                    </div>
+
+                    <div style="margin-top: 25px;">
+                        <h4 style="font-size: 1.6rem; color: #F0F8FF; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); margin-bottom: 10px;">🛍️ O meu saco:</h4>
+                        <div id="saco-farmacia" class="saco-farmacia">
+                        </div>
+                    </div>
+
+                    <button class="btn-voltar-lateral" style="margin-top: 30px; width: 100%;" onclick="voltarAoMenuDificuldade()">
+                        ⬅ Mudar de Nível
+                    </button>
+                </div>
+
+                <div class="painel-loja prateleira-vidro" style="flex-grow: 1;">
+                    <div class="grade-grafico" style="display: flex; flex-direction: column; gap: 60px;">
+                        
+                        <div id="prateleira-1" style="display: flex; gap: 15px; justify-content: space-around; padding-bottom: 10px; min-height: 100px;"></div>
+                        <div class="linha-vidro"></div> 
+                        
+                        <div id="prateleira-2" style="display: flex; gap: 15px; justify-content: space-around; padding-bottom: 10px; min-height: 100px;"></div>
+                        <div class="linha-vidro"></div>
+                        
+                        <div id="prateleira-3" style="display: flex; gap: 15px; justify-content: space-around; padding-bottom: 10px; min-height: 100px;"></div>
+                        <div class="linha-vidro"></div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div id="zona-troco" style="display: none; text-align: center; margin-top: 30px;">
+                <h3 style="font-size: 2.4rem; color: #F0F8FF; margin-bottom: 10px;">🛒 Pagamento na Caixa</h3>
+                <div id="info-pagamento" style="font-size: 1.8rem; margin-bottom: 30px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; display: inline-block;">
+                </div>
+                
+                <h4 style="font-size: 1.6rem; color: #f1c40f;">Escolha a mão com o troco correto:</h4>
+                <div id="container-maos" class="container-maos-troco">
+                </div>
+            </div>
+
+        </div>
+
+    <script src="js/farmacia.js"></script>
+
+</body>
+</html>

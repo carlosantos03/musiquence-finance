@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermercado - MQ Finance</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/jogos_farmacia_supermercado.css">
+</head>
+<body>
+    <div id="chuva-dinheiro"></div>
+
+    <div class="menu-container">
+        
+        <div id="ecra-niveis" class="caixa-privacidade" style="text-align: center;">
+            <h2 style="color: #3BA7B1; font-size: 2.8rem; margin-bottom: 10px;">Supermercado 🛒</h2>
+            <p style="color: #F0F8FF; font-size: 1.6rem; margin-bottom: 30px;">Escolha o seu desafio de hoje:</p>
+
+            <button class="btn-nivel btn-facil" onclick="escolherNivel('facil')">🟢 Nível 1: Fácil (1 Produto)</button>
+            <button class="btn-nivel btn-medio" onclick="escolherNivel('medio')">🟡 Nível 2: Médio (3 Produtos)</button>
+            <button class="btn-nivel btn-dificil" onclick="escolherNivel('dificil')">🔴 Nível 3: Difícil (5 Produtos)</button>
+            
+            <button class="btn-voltar" style="margin-top: 20px;" onclick="window.location.href='menu_jogos.html'">⬅ Voltar ao Menu</button>
+        </div>
+
+
+        <div id="ecra-supermercado" class="caixa-privacidade" style="display: none; width: 90%; max-width: 1300px; margin: 0 auto; padding: 40px;">
+            
+            <div class="cabecalho-folha" style="border-bottom: 2px dashed #b2bec3; padding-bottom: 15px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center;">
+                <h2 class="titulo-folha" style="margin: 0; color: #3BA7B1; font-size: 2.2rem;">Fazer Compras 🛍️</h2>
+                <span class="etiqueta-nivel" id="etiqueta-nivel-super">Nível 1: Fácil</span>
+            </div>
+
+            <div class="layout-supermercado">
+    
+                <div class="coluna-esquerda">
+                    
+                    <div class="painel-lista">
+                        <h3>📝 Lista de Compras</h3>
+                        <ul id="lista-compras-html">
+                            </ul>
+                    </div> <div style="margin-top: 15px;">
+                        <h4 style="font-size: 1.6rem; color: #F0F8FF; margin-bottom: 10px; text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">🛒 O meu carrinho:</h4>
+                        <div id="carrinho-compras" class="carrinho-compras">
+                            </div>
+                    </div>
+
+                    <button class="btn-voltar-lateral" onclick="voltarAoMenuDificuldade()">
+                        ⬅ Mudar de Nível
+                    </button>
+
+                </div>
+
+                <div class="painel-loja">
+                    <div class="prateleira" id="prateleira-1"></div>
+                    <div class="prateleira" id="prateleira-2"></div>
+                    <div class="prateleira" id="prateleira-3"></div> 
+                    <div class="prateleira" id="prateleira-4"></div>
+                    <div class="prateleira" id="prateleira-5"></div>
+                </div>
+            </div>
+
+            <div id="zona-faturas" style="display: none; text-align: center; margin-top: 30px;">
+            </div>
+            
+        </div>
+
+    </div>
+
+    <script src="js/supermercado.js"></script>
+</body>
+</html>
